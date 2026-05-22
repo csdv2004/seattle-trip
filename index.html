@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>Seattle Trip App 2026</title>
+
+<style>
+:root{
+  --bg:#0f172a;
+  --card:#111827;
+  --card2:#1e293b;
+  --primary:#38bdf8;
+  --text:#f8fafc;
+  --muted:#94a3b8;
+  --accent:#22c55e;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+body{
+  background:linear-gradient(to bottom,#0f172a,#111827);
+  color:var(--text);
+  padding-bottom:100px;
+}
+
+header{
+  padding:24px;
+}
+
+.hero{
+  background:linear-gradient(135deg,#0ea5e9,#1d4ed8);
+  border-radius:24px;
+  padding:24px;
+  box-shadow:0 10px 30px rgba(0,0,0,.25);
+}
+
+.hero h1{
+  font-size:28px;
+  margin-bottom:8px;
+}
+
+.hero p{
+  color:#dbeafe;
+  line-height:1.6;
+}
+
+.stats{
+  display:flex;
+  gap:12px;
+  margin-top:18px;
+  flex-wrap:wrap;
+}
+
+.stat{
+  background:rgba(255,255,255,.12);
+  padding:10px 14px;
+  border-radius:14px;
+  font-size:14px;
+}
+
+.container{
+  padding:20px;
+}
+
+.section-title{
+  margin-bottom:16px;
+  font-size:22px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:20px;
+  padding:18px;
+  margin-bottom:16px;
+  border:1px solid rgba(255,255,255,.06);
+}
+
+.card h3{
+  margin-bottom:10px;
+  color:#7dd3fc;
+}
+
+.day-tag{
+  display:inline-block;
+  background:#1d4ed8;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:12px;
+  margin-bottom:10px;
+}
+
+.timeline{
+  margin-top:12px;
+}
+
+.timeline-item{
+  margin-bottom:14px;
+  padding-left:14px;
+  border-left:2px solid #334155;
+}
+
+.timeline-item strong{
+  color:#f8fafc;
+}
+
+.muted{
+  color:var(--muted);
+  line-height:1.6;
+}
+
+.map-btn{
+  display:inline-block;
+  margin-top:12px;
+  background:var(--primary);
+  color:#001018;
+  text-decoration:none;
+  padding:10px 14px;
+  border-radius:12px;
+  font-weight:700;
+}
+
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:#020617;
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex;
+  justify-content:space-around;
+  padding:12px 0;
+}
+
+.nav-btn{
+  color:#cbd5e1;
+  font-size:12px;
+  text-align:center;
+  cursor:pointer;
+}
+
+.page{
+  display:none;
+}
+
+.page.active{
+  display:block;
+}
+
+ul{
+  padding-left:20px;
+  line-height:1.8;
+}
+
+.hotel{
+  background:var(--card2);
+  padding:14px;
+  border-radius:14px;
+  margin-top:10px;
+}
+
+.badge{
+  display:inline-block;
+  background:#14532d;
+  color:#bbf7d0;
+  padding:4px 10px;
+  border-radius:999px;
+  font-size:12px;
+  margin-bottom:10px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="hero">
+    <h1>Seattle & Pacific Northwest Trip 🇺🇸</h1>
+    <p>
+      Gig Harbor Based Lifestyle Trip · Seattle · MLB · Ferry · Bike Ride · Coffee · UW
+    </p>
+
+    <div class="stats">
+      <div class="stat">📅 16 Days</div>
+      <div class="stat">⚾ Mariners Night</div>
+      <div class="stat">🚴 Bike Ride</div>
+      <div class="stat">⛴ Ferry</div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+<!-- HOME -->
+<div class="page active" id="home">
+
+<h2 class="section-title">Trip Overview</h2>
+
+<div class="card">
+<div class="badge">Main Base</div>
+<h3>Gig Harbor Lifestyle Trip</h3>
+
+<p class="muted">
+這趟旅程主軸是 Pacific Northwest 在地生活感，
+不是硬核踩點。
+以 Gig Harbor 為基地，
+穿插 Seattle 市區、
+MLB、
+渡輪、
+單車、
+咖啡與自然景觀。
+</p>
+</div>
+
+<div class="card">
+<div class="badge">Seattle Stay</div>
+<h3>Seattle 2D1N with Mom</h3>
+
+<p class="muted">
+推薦住宿區域：
+South Lake Union / Seattle Center
+方便步行至：
+Space Needle、Pike Place、UW、Kerry Park。
+</p>
+</div>
+
+<div class="card">
+<div class="badge">Bike Ride</div>
+<h3>Fox Island Loop</h3>
+
+<p class="muted">
+50–80km 海岸公路路線，
+適合運動＋風景。
+包含：
+海景、橋樑、森林與 suburban 騎乘感。
+</p>
+</div>
+
+</div>
+
+<!-- DAILY -->
+<div class="page" id="daily">
+
+<h2 class="section-title">Daily Schedule</h2>
+
+<div class="card">
+<div class="day-tag">Day 7 · Seattle Stay</div>
+<h3>UW · Fremont · Gas Works</h3>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<strong>10:00</strong>
+<p class="muted">
+University of Washington
+</p>
+</div>
+
+<div class="timeline-item">
+<strong>13:00</strong>
+<p class="muted">
+U District Lunch
+</p>
+</div>
+
+<div class="timeline-item">
+<strong>15:00</strong>
+<p class="muted">
+Fremont Troll + Gas Works Park
+</p>
+</div>
+
+<div class="timeline-item">
+<strong>19:00</strong>
+<p class="muted">
+Kerry Park Night View
+</p>
+</div>
+
+</div>
+
+<a class="map-btn"
+href="https://maps.app.goo.gl/9z7n3Jqz4fsv6x1H7"
+target="_blank">
+Open Google Maps
+</a>
+
+</div>
+
+<div class="card">
+<div class="day-tag">Day 9 · MLB</div>
+<h3>Seattle Mariners Taiwanese Night ⚾</h3>
+
+<div class="timeline">
+
+<div class="timeline-item">
+<strong>15:30</strong>
+<p class="muted">
+Family drive from Gig Harbor
+</p>
+</div>
+
+<div class="timeline-item">
+<strong>19:00</strong>
+<p class="muted">
+T-Mobile Park Game
+</p>
+</div>
+
+<div class="timeline-item">
+<strong>23:00+</strong>
+<p class="muted">
+Return to Gig Harbor
+</p>
+</div>
+
+</div>
+
+<a class="map-btn"
+href="https://maps.app.goo.gl/oN6m6J7n9A1vJv8F9"
+target="_blank">
+Open Stadium Map
+</a>
+
+</div>
+
+<div class="card">
+<div class="day-tag">Day 10 · Ferry</div>
+<h3>Southworth Ferry</h3>
+
+<p class="muted">
+Southworth → Vashon Island
+輕鬆恢復日，
+享受 Washington ferry vibe。
+</p>
+
+<a class="map-btn"
+href="https://maps.app.goo.gl/LxM5Q3L9p5Q2Yv3S9"
+target="_blank">
+Open Ferry Terminal
+</a>
+
+</div>
+
+</div>
+
+<!-- HOTELS -->
+<div class="page" id="hotel">
+
+<h2 class="section-title">Hotels</h2>
+
+<div class="hotel">
+<h3>Cambria Hotel Portland</h3>
+<p class="muted">
+5/23 Portland Stay
+</p>
+</div>
+
+<div class="hotel">
+<h3>Cooper Spur Mountain Resort</h3>
+<p class="muted">
+5/24 Mt. Hood Stay
+</p>
+</div>
+
+<div class="hotel">
+<h3>Staybridge Suites Seattle SLU</h3>
+<p class="muted">
+Seattle 2D1N Recommendation
+</p>
+</div>
+
+</div>
+
+<!-- PACK -->
+<div class="page" id="packing">
+
+<h2 class="section-title">Packing List</h2>
+
+<div class="card">
+<ul>
+<li>薄防水外套</li>
+<li>保暖層（Seattle 晚上偏冷）</li>
+<li>球賽外套</li>
+<li>行動電源</li>
+<li>太陽眼鏡</li>
+<li>單車裝備</li>
+<li>防曬</li>
+<li>美國轉接頭</li>
+<li>輕便鞋</li>
+<li>背包</li>
+</ul>
+</div>
+
+</div>
+
+<!-- BUDGET -->
+<div class="page" id="budget">
+
+<h2 class="section-title">Budget</h2>
+
+<div class="card">
+<h3>Total Budget</h3>
+
+<p class="muted">
+TWD 10–13萬（不含機票）
+</p>
+
+<ul>
+<li>Seattle Hotel：8k–15k</li>
+<li>Food：USD 40–100/day</li>
+<li>Parking：USD 20–60/day</li>
+<li>Coffee：USD 5–10</li>
+<li>Bike Rental：USD 60–120</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- NAV -->
+<div class="bottom-nav">
+
+<div class="nav-btn" onclick="showPage('home')">
+🏠<br>Home
+</div>
+
+<div class="nav-btn" onclick="showPage('daily')">
+📅<br>Daily
+</div>
+
+<div class="nav-btn" onclick="showPage('hotel')">
+🏨<br>Hotel
+</div>
+
+<div class="nav-btn" onclick="showPage('packing')">
+🎒<br>Packing
+</div>
+
+<div class="nav-btn" onclick="showPage('budget')">
+💰<br>Budget
+</div>
+
+</div>
+
+<script>
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>{
+    p.classList.remove('active');
+  });
+
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
