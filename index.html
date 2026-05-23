@@ -3,100 +3,81 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#0b1220" />
-<title>Seattle Trip App 2026 v2</title>
+<title>Seattle Trip App 2026 v2.2</title>
+
 <style>
 :root{
-  --bg:#0b1220;--bg2:#101827;--card:#151f32;--card2:#1d2a42;
-  --text:#f8fafc;--muted:#a8b3c7;--line:rgba(255,255,255,.09);
-  --blue:#38bdf8;--green:#22c55e;--amber:#f59e0b;--pink:#fb7185;
-  --shadow:0 18px 45px rgba(0,0,0,.32);--radius:22px;
+  --bg:#08101d;
+  --card:#15233b;
+  --text:#f8fafc;
+  --muted:#b6c2d3;
+  --blue:#38bdf8;
+  --green:#22c55e;
+  --amber:#f59e0b;
 }
-*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans TC",sans-serif}
-body{background:radial-gradient(circle at top,#1d4ed8 0,#0b1220 34%,#070b14 100%);color:var(--text);padding-bottom:96px;min-height:100vh}
-a{color:inherit}.app{max-width:760px;margin:0 auto}.top{padding:18px 18px 8px}.hero{position:relative;overflow:hidden;border-radius:30px;padding:24px;background:linear-gradient(135deg,#0ea5e9,#2563eb 46%,#1e1b4b);box-shadow:var(--shadow)}
-.hero:after{content:"";position:absolute;right:-50px;top:-50px;width:170px;height:170px;background:rgba(255,255,255,.16);border-radius:50%}.hero h1{font-size:30px;line-height:1.12;margin-bottom:10px}.hero p{color:#dbeafe;line-height:1.6;font-size:15px}.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}.chip{background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.16);padding:9px 12px;border-radius:999px;font-size:14px;backdrop-filter:blur(8px)}
-.tabs{display:flex;gap:10px;overflow-x:auto;padding:10px 18px 4px;scrollbar-width:none}.tab{white-space:nowrap;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--muted);padding:10px 13px;border-radius:999px;font-size:14px}.tab.active{background:#e0f2fe;color:#082f49;font-weight:700}.container{padding:14px 18px}.page{display:none}.page.active{display:block}.title{font-size:22px;margin:8px 0 14px}.sub{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:14px}.card{background:rgba(21,31,50,.88);border:1px solid var(--line);border-radius:var(--radius);padding:17px;margin-bottom:14px;box-shadow:0 10px 30px rgba(0,0,0,.18);backdrop-filter:blur(10px)}.card h3{font-size:20px;margin-bottom:8px}.meta{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 12px}.badge{display:inline-flex;align-items:center;gap:5px;border-radius:999px;padding:5px 9px;font-size:12px;background:#0f2f4a;color:#bae6fd;border:1px solid rgba(56,189,248,.22)}.badge.green{background:#14351f;color:#bbf7d0}.badge.amber{background:#3a2b0d;color:#fde68a}.badge.pink{background:#3c1620;color:#fecdd3}.muted{color:var(--muted);line-height:1.7}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mini{background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:18px;padding:12px}.mini b{display:block;margin-bottom:6px}.timeline{margin-top:12px}.item{display:grid;grid-template-columns:58px 1fr;gap:10px;padding:12px 0;border-top:1px solid var(--line)}.item:first-child{border-top:0}.time{font-weight:800;color:#7dd3fc}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 12px;border-radius:14px;background:#38bdf8;color:#06131c;text-decoration:none;font-weight:800;font-size:14px;border:0}.btn.secondary{background:rgba(255,255,255,.08);color:#e2e8f0;border:1px solid var(--line)}.btn.green{background:#22c55e;color:#052e16}.daylist{display:flex;flex-direction:column;gap:12px}.daycard{border-radius:22px;padding:16px;background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border:1px solid var(--line)}.dayhead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.daynum{font-size:13px;color:#bae6fd}.daydate{font-size:13px;color:var(--muted)}.daytitle{font-size:19px;font-weight:800;margin:5px 0}.pillrow{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}.pill{font-size:12px;padding:4px 8px;background:rgba(255,255,255,.08);border-radius:999px;color:#cbd5e1}.bottom{position:fixed;left:0;right:0;bottom:0;background:rgba(2,6,23,.92);border-top:1px solid var(--line);backdrop-filter:blur(14px);padding:8px 6px calc(8px + env(safe-area-inset-bottom));display:flex;justify-content:space-around;z-index:20}.nav{width:20%;text-align:center;color:#cbd5e1;font-size:12px;cursor:pointer}.nav span{display:block;font-size:21px;margin-bottom:2px}.nav.active{color:#7dd3fc;font-weight:800}.notice{border-left:4px solid var(--amber);padding:12px;background:rgba(245,158,11,.10);border-radius:14px;color:#fde68a;line-height:1.6}.list{padding-left:18px;line-height:1.9;color:#dbe3ef}.section{margin-top:18px}.search{width:100%;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--text);border-radius:16px;padding:12px 14px;margin:0 0 14px;font-size:15px}.progress{height:10px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden;margin:12px 0}.bar{height:100%;width:42%;background:linear-gradient(90deg,#22c55e,#38bdf8)}
-@media (max-width:420px){.hero h1{font-size:27px}.grid{grid-template-columns:1fr}.item{grid-template-columns:52px 1fr}.card{padding:15px}.container{padding-left:14px;padding-right:14px}.top{padding-left:14px;padding-right:14px}}
+*{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif}
+body{background:linear-gradient(180deg,#0f172a,#020617);color:var(--text);padding-bottom:110px}
+.hero{margin:16px;padding:24px;border-radius:28px;background:linear-gradient(135deg,#0ea5e9,#2563eb,#312e81);box-shadow:0 20px 40px rgba(0,0,0,.35)}
+.hero h1{font-size:30px;line-height:1.15;margin-bottom:12px}
+.hero p{line-height:1.7;color:#dbeafe}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.chip{padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.15);font-size:14px}
+.tabs{display:flex;gap:10px;overflow:auto;padding:0 16px 14px}
+.tab{padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:#111827;color:#cbd5e1;white-space:nowrap}
+.tab.active{background:#dbeafe;color:#0f172a;font-weight:800}
+.container{padding:0 16px}
+.title{font-size:28px;margin:10px 0 16px}
+.search{width:100%;padding:14px;border-radius:16px;border:1px solid #334155;background:#111827;color:white;margin-bottom:18px;font-size:16px}
+.daylist{display:flex;flex-direction:column;gap:18px}
+.daycard{padding:18px;border-radius:26px;border:2px solid rgba(56,189,248,.55);background:linear-gradient(180deg,#172554,#0f172a);box-shadow:0 10px 30px rgba(0,0,0,.22)}
+.daycard:nth-child(odd){border-color:rgba(34,197,94,.6);background:linear-gradient(180deg,#0f2b25,#0b1320)}
+.dayhead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.daytitle{font-size:22px;font-weight:800;margin-top:6px}
+.daynum{color:#7dd3fc;font-size:14px}
+.daydate{color:var(--muted);margin-top:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:14px;background:#38bdf8;color:#001018;text-decoration:none;font-weight:800;white-space:nowrap;min-width:96px}
+.timeline{margin-top:14px}
+.item{display:grid;grid-template-columns:70px 1fr;gap:10px;padding:12px 0;border-top:1px solid rgba(255,255,255,.1)}
+.time{font-weight:800;color:#7dd3fc}
+.text{line-height:1.7;color:#dbeafe}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.pill{font-size:12px;padding:5px 9px;border-radius:999px;background:rgba(255,255,255,.1);color:#dbeafe}
+.quicktop{text-align:right;margin-top:14px}
+.topbtn{background:#1e293b;border:1px solid rgba(255,255,255,.16);color:white;padding:10px 14px;border-radius:999px;text-decoration:none;font-size:14px}
+@media(max-width:520px){
+  .hero h1{font-size:28px}
+  .dayhead{flex-direction:column}
+  .btn{width:100%}
+  .item{grid-template-columns:62px 1fr}
+}
 </style>
 </head>
-<body>
-<div class="app">
-<header class="top">
-  <section class="hero">
-    <h1>Seattle & Pacific Northwest Trip 🇺🇸</h1>
-    <p>2026/5/22–6/6｜Gig Harbor 出發｜Seattle 精華、MLB、Ferry、公路車、咖啡、UW、山海慢旅</p>
-    <div class="chips"><span class="chip">📅 16天15夜</span><span class="chip">🏠 Gig Harbor</span><span class="chip">⚾ Mariners</span><span class="chip">🚴 Bike</span><span class="chip">⛴ Ferry</span></div>
-  </section>
-</header>
 
-<nav class="tabs" id="dayTabs"></nav>
+<body id="top">
 
-<main class="container">
-<section class="page active" id="home">
-  <h2 class="title">Trip Dashboard</h2>
-  <p class="sub">v2 已改成真正行程 App：每日卡片、可切換頁面、Google Maps 按鈕、交通/住宿/行李/預算資訊。棒球日已更新為全家從 Gig Harbor 當天來回；6/2–6/3 Leavenworth 由弟弟夫妻安排。</p>
-  <div class="grid">
-    <div class="mini"><b>主要基地</b><span class="muted">弟弟家｜3908 122nd St Ct NW, Gig Harbor</span></div>
-    <div class="mini"><b>Seattle 2天1夜</b><span class="muted">你＋媽媽；建議住 SLU / Seattle Center / Belltown</span></div>
-    <div class="mini"><b>交通策略</b><span class="muted">分段租車；和弟弟夫妻同行時由家人開車</span></div>
-    <div class="mini"><b>旅行風格</b><span class="muted">景色、咖啡、攝影、超市、漢堡、博物館</span></div>
-  </div>
-  <div class="card section">
-    <div class="meta"><span class="badge amber">⚠️ 重要</span><span class="badge">Seattle 交通</span></div>
-    <h3>不要天天進市區</h3>
-    <p class="muted">Gig Harbor 到 Seattle 市區單趟常見 60–90 分鐘，所以把 Seattle 精華集中在 5/28–5/29，棒球日 5/30 則全家一起當天來回。</p>
+<section class="hero">
+  <h1>Seattle & Pacific Northwest Trip 🇺🇸</h1>
+  <p>2026/5/22–6/6｜Gig Harbor 出發｜Seattle 精華、MLB、Ferry、公路車、咖啡、UW、山海慢旅</p>
+  <div class="chips">
+    <div class="chip">📅 16天15夜</div>
+    <div class="chip">🏠 Gig Harbor</div>
+    <div class="chip">⚾ Mariners</div>
+    <div class="chip">🚴 Bike</div>
+    <div class="chip">⛴ Ferry</div>
   </div>
 </section>
 
-<section class="page" id="daily">
+<div class="tabs" id="tabs"></div>
+
+<div class="container">
   <h2 class="title">每日行程</h2>
   <input class="search" id="search" placeholder="搜尋：UW、MLB、Ferry、Bike、咖啡…" oninput="renderDays()" />
   <div class="daylist" id="days"></div>
-</section>
-
-<section class="page" id="traffic">
-  <h2 class="title">交通與路線</h2>
-  <div class="card"><h3>Seattle 2天1夜交通建議</h3><p class="muted">偏推薦開車進城＋選對飯店。理由：你和媽媽會跑 UW、Fremont、Kerry Park、Pike Place，點位分散，開車比一直 Uber 更穩。停車費雖貴，但買方便是合理的。</p><div class="actions"><a class="btn" target="_blank" href="https://maps.app.goo.gl/9z7n3Jqz4fsv6x1H7">UW 地圖</a><a class="btn secondary" target="_blank" href="https://maps.app.goo.gl/eqg1fAx8o6VnX4Pj9">Kerry Park</a></div></div>
-  <div class="card"><h3>Southworth Ferry</h3><p class="muted">從 Gig Harbor 去 Southworth 搭渡輪，比繞去 Seattle 搭 Bainbridge 更合理。建議 5/31 當球賽後恢復日，體驗 Vashon Island 小旅行。</p><div class="actions"><a class="btn" target="_blank" href="https://wsdot.com/ferries/schedule/scheduledetailbyroute.aspx?route=s-v">查 Ferry 班表</a><a class="btn secondary" target="_blank" href="https://maps.app.goo.gl/LxM5Q3L9p5Q2Yv3S9">Southworth Terminal</a></div></div>
-  <div class="card"><h3>公路車日</h3><p class="muted">Trek Bicycle Gig Harbor 租車，建議中間型 50–80km：Fox Island / Oyster Bay Loop。重點是海景、起伏、森林與運動感。</p><div class="actions"><a class="btn green" target="_blank" href="https://maps.app.goo.gl/M6kA7s5zKJ4nJmN37">Trek Bicycle</a></div></div>
-</section>
-
-<section class="page" id="stay">
-  <h2 class="title">住宿</h2>
-  <div class="card"><span class="badge green">已訂</span><h3>5/23 Cambria Hotel Portland - Pearl District</h3><p class="muted">Portland 城市小旅行住宿。</p></div>
-  <div class="card"><span class="badge green">已訂</span><h3>5/24 Cooper Spur Mountain Resort</h3><p class="muted">Mt. Hood 山區度假住宿。</p></div>
-  <div class="card"><span class="badge amber">建議訂</span><h3>Seattle 2天1夜：South Lake Union / Seattle Center</h3><p class="muted">你＋媽媽。優先選景點方便、可步行、停車可接受的飯店。候選：Staybridge Suites Seattle SLU、Hyatt Place Seattle/Downtown。</p></div>
-  <div class="card"><span class="badge">家人安排</span><h3>6/2–6/3 Leavenworth</h3><p class="muted">行程與住宿由弟弟夫妻安排；App 中保留占位，之後可補細節。</p></div>
-</section>
-
-<section class="page" id="pack">
-  <h2 class="title">行李與準備</h2>
-  <div class="card"><h3>天氣穿搭</h3><ul class="list"><li>薄防水外套、薄羽絨或刷毛中層</li><li>早晚 11–16°C，白天約 18–23°C</li><li>球賽夜間、防風外套必備</li><li>好走防水鞋或運動鞋</li></ul></div>
-  <div class="card"><h3>單車裝備</h3><ul class="list"><li>車衣褲、手套、墨鏡</li><li>Garmin / 手機架 / 行動電源</li><li>補給膠、電解質、薄風衣</li><li>租車前確認踏板規格與安全帽</li></ul></div>
-  <div class="card"><h3>嬰兒同行提醒</h3><ul class="list"><li>每天只設一個主目標</li><li>長途車程每 1.5–2 小時休息</li><li>MLB 需嬰兒降噪耳罩與防風毯</li><li>隨身尿布、奶瓶、濕紙巾、備用衣物</li></ul></div>
-</section>
-
-<section class="page" id="budget">
-  <h2 class="title">預算</h2>
-  <div class="card"><h3>總預算</h3><p class="muted">TWD 10–13萬，不含機票約 3萬。屬於舒服中高級自由行。</p><div class="progress"><div class="bar"></div></div><p class="muted">最大花費：Seattle 住宿＋停車、餐飲、租車/交通、購物。</p></div>
-  <div class="grid"><div class="mini"><b>Seattle 飯店</b><span class="muted">TWD 8k–15k / 晚</span></div><div class="mini"><b>餐飲</b><span class="muted">USD 40–100 / 日</span></div><div class="mini"><b>停車</b><span class="muted">USD 20–60 / 日</span></div><div class="mini"><b>Bike Rental</b><span class="muted">USD 60–120</span></div></div>
-</section>
-</main>
 </div>
-
-<nav class="bottom">
-  <div class="nav active" onclick="show('home',this)"><span>🏠</span>首頁</div>
-  <div class="nav" onclick="show('daily',this)"><span>📅</span>每日</div>
-  <div class="nav" onclick="show('traffic',this)"><span>🚗</span>交通</div>
-  <div class="nav" onclick="show('stay',this)"><span>🏨</span>住宿</div>
-  <div class="nav" onclick="show('pack',this)"><span>🎒</span>行李</div>
-  <div class="nav" onclick="show('budget',this)"><span>💰</span>預算</div>
-</nav>
 
 <script>
 const days=[
-{d:'Day 1',date:'5/22 五',title:'抵達西雅圖・回 Gig Harbor',tags:['飛機','家庭報到'],map:'https://maps.app.goo.gl/ViRwSNeDhQJBjgCfA',items:[['晚間','抵達 SEA-TAC，入境、領行李'],['晚上','回弟弟家，調時差，不排硬行程']]},
+{d:'Day 1',date:'5/22 五',title:'抵達 Seattle・回 Gig Harbor',tags:['飛機','家庭報到'],map:'https://maps.app.goo.gl/ViRwSNeDhQJBjgCfA',items:[['晚間','抵達 SEA-TAC，入境、領行李'],['晚上','回弟弟家，調時差，不排硬行程']]},
 {d:'Day 2',date:'5/23 六',title:'Portland 小旅行｜Pearl District',tags:['Portland','咖啡','書店'],map:'https://maps.app.goo.gl/7xQ7D7TTT8tGm7vU7',items:[['上午','Gig Harbor 出發南下 Portland'],['下午','Pearl District、Powell’s City of Books、咖啡散步'],['晚上','Cambria Hotel Portland - Pearl District']]},
 {d:'Day 3',date:'5/24 日',title:'Woodburn Outlet × Mt. Hood',tags:['Outlet','山區'],map:'https://maps.app.goo.gl/9Ekn3q6TnA3oXW4s9',items:[['上午','Woodburn Premium Outlets'],['下午','前往 Cooper Spur Mountain Resort'],['晚上','山區晚餐、早點休息']]},
 {d:'Day 4',date:'5/25 一',title:'Mt. Hood 放空日・回 Gig Harbor',tags:['森林','山景'],map:'https://maps.app.goo.gl/Qs9owtafYkNrCkvx9',items:[['上午','Cooper Spur 周邊慢散步'],['下午','Hood River 或直接回程'],['晚上','回 Gig Harbor 休息']]},
@@ -113,11 +94,59 @@ const days=[
 {d:'Day 15',date:'6/5 五',title:'最後採買・打包・前往機場',tags:['Costco','打包','機場'],map:'https://maps.app.goo.gl/Er2jKWhfEh3E78WH6',items:[['上午','Costco / Trader Joe’s / Bellevue Square'],['下午','打包、洗衣、確認行李'],['晚上','提前前往 SEA-TAC，準備 6/6 01:15 起飛']]},
 {d:'Day 16',date:'6/6 六',title:'JX031 回台灣',tags:['回程','飛機'],map:'https://maps.app.goo.gl/Er2jKWhfEh3E78WH6',items:[['01:15','搭乘 JX031 離開 Seattle'],['後續','平安返台，整理照片與回憶']]}
 ];
-function show(id,el){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.nav').forEach(n=>n.classList.remove('active'));if(el)el.classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
-function renderTabs(){document.getElementById('dayTabs').innerHTML=days.map((x,i)=>`<button class="tab ${i===0?'active':''}" onclick="jumpDay(${i},this)">${x.d}</button>`).join('');}
-function jumpDay(i,el){show('daily',document.querySelectorAll('.nav')[1]);document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));el.classList.add('active');setTimeout(()=>{const target=document.getElementById('day-'+i);if(target)target.scrollIntoView({behavior:'smooth',block:'start'});},60)}
-function renderDays(){const q=(document.getElementById('search')?.value||'').toLowerCase();const filtered=days.map((x,i)=>({...x,i})).filter(x=>!q||[x.d,x.date,x.title,...x.tags].join(' ').toLowerCase().includes(q));document.getElementById('days').innerHTML=filtered.map(x=>`<article class="daycard" id="day-${x.i}"><div class="dayhead"><div><div class="daynum">${x.d}</div><div class="daytitle">${x.title}</div><div class="daydate">${x.date}</div></div><a class="btn" target="_blank" href="${x.map}">地圖</a></div><div class="pillrow">${x.tags.map(t=>`<span class="pill">${t}</span>`).join('')}</div><div class="timeline">${x.items.map(it=>`<div class="item"><div class="time">${it[0]}</div><div class="muted">${it[1]}</div></div>`).join('')}</div></article>`).join('')||'<p class="muted">找不到符合的行程。</p>';}
-renderTabs();renderDays();
+
+function renderTabs(){
+  document.getElementById('tabs').innerHTML=days.map((x,i)=>
+    `<button class="tab ${i===0?'active':''}" onclick="jumpDay(${i},this)">${x.d}</button>`
+  ).join('');
+}
+
+function jumpDay(i,el){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  const target=document.getElementById('day-'+i);
+  if(target){ target.scrollIntoView({behavior:'smooth',block:'start'}); }
+}
+
+function renderDays(){
+  const q=(document.getElementById('search').value||'').toLowerCase();
+  const filtered=days.map((x,i)=>({...x,i}))
+    .filter(x=>!q||[x.d,x.date,x.title,...x.tags].join(' ').toLowerCase().includes(q));
+
+  document.getElementById('days').innerHTML=filtered.map(x=>`
+    <div class="daycard" id="day-${x.i}">
+      <div class="dayhead">
+        <div>
+          <div class="daynum">${x.d}</div>
+          <div class="daytitle">${x.title}</div>
+          <div class="daydate">${x.date}</div>
+        </div>
+        <a class="btn" target="_blank" href="${x.map}">🗺 地圖導航</a>
+      </div>
+
+      <div class="pills">
+        ${x.tags.map(t=>`<span class="pill">${t}</span>`).join('')}
+      </div>
+
+      <div class="timeline">
+        ${x.items.map(it=>`
+          <div class="item">
+            <div class="time">${it[0]}</div>
+            <div class="text">${it[1]}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="quicktop">
+        <a href="#top" class="topbtn" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆ 回日期選單</a>
+      </div>
+    </div>
+  `).join('');
+}
+
+renderTabs();
+renderDays();
 </script>
+
 </body>
 </html>
