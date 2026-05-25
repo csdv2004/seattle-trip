@@ -3,150 +3,111 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>Seattle Trip App 2026 v2.2</title>
-
+<title>Seattle Trip App 2026 v3</title>
 <style>
-:root{
-  --bg:#08101d;
-  --card:#15233b;
-  --text:#f8fafc;
-  --muted:#b6c2d3;
-  --blue:#38bdf8;
-  --green:#22c55e;
-  --amber:#f59e0b;
-}
+:root{--bg:#08101d;--text:#f8fafc;--muted:#b6c2d3;--blue:#38bdf8;--green:#22c55e}
 *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans TC",sans-serif}
-body{background:linear-gradient(180deg,#0f172a,#020617);color:var(--text);padding-bottom:110px}
+body{background:linear-gradient(180deg,#0f172a,#020617);color:var(--text);padding-bottom:100px}
 .hero{margin:16px;padding:24px;border-radius:28px;background:linear-gradient(135deg,#0ea5e9,#2563eb,#312e81);box-shadow:0 20px 40px rgba(0,0,0,.35)}
-.hero h1{font-size:30px;line-height:1.15;margin-bottom:12px}
-.hero p{line-height:1.7;color:#dbeafe}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
-.chip{padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.15);font-size:14px}
-.tabs{display:flex;gap:10px;overflow:auto;padding:0 16px 14px}
-.tab{padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.14);background:#111827;color:#cbd5e1;white-space:nowrap}
-.tab.active{background:#dbeafe;color:#0f172a;font-weight:800}
-.container{padding:0 16px}
-.title{font-size:28px;margin:10px 0 16px}
-.search{width:100%;padding:14px;border-radius:16px;border:1px solid #334155;background:#111827;color:white;margin-bottom:18px;font-size:16px}
-.daylist{display:flex;flex-direction:column;gap:18px}
-.daycard{padding:18px;border-radius:26px;border:2px solid rgba(56,189,248,.55);background:linear-gradient(180deg,#172554,#0f172a);box-shadow:0 10px 30px rgba(0,0,0,.22)}
-.daycard:nth-child(odd){border-color:rgba(34,197,94,.6);background:linear-gradient(180deg,#0f2b25,#0b1320)}
-.dayhead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
-.daytitle{font-size:22px;font-weight:800;margin-top:6px}
-.daynum{color:#7dd3fc;font-size:14px}
-.daydate{color:var(--muted);margin-top:4px}
-.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:14px;background:#38bdf8;color:#001018;text-decoration:none;font-weight:800;white-space:nowrap;min-width:96px}
-.timeline{margin-top:14px}
-.item{display:grid;grid-template-columns:70px 1fr;gap:10px;padding:12px 0;border-top:1px solid rgba(255,255,255,.1)}
-.time{font-weight:800;color:#7dd3fc}
-.text{line-height:1.7;color:#dbeafe}
-.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-.pill{font-size:12px;padding:5px 9px;border-radius:999px;background:rgba(255,255,255,.1);color:#dbeafe}
-.quicktop{text-align:right;margin-top:14px}
-.topbtn{background:#1e293b;border:1px solid rgba(255,255,255,.16);color:white;padding:10px 14px;border-radius:999px;text-decoration:none;font-size:14px}
-@media(max-width:520px){
-  .hero h1{font-size:28px}
-  .dayhead{flex-direction:column}
-  .btn{width:100%}
-  .item{grid-template-columns:62px 1fr}
-}
+.hero h1{font-size:30px;margin-bottom:12px}.hero p{line-height:1.7;color:#dbeafe}
+.chips,.tabs,.pills{display:flex;gap:10px;flex-wrap:wrap}.chips{margin-top:18px}.chip,.pill{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.14);font-size:13px}
+.tabs{overflow:auto;flex-wrap:nowrap;padding:0 16px 14px}.tab{padding:10px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.15);background:#111827;color:#cbd5e1;white-space:nowrap}.tab.active{background:#dbeafe;color:#0f172a;font-weight:800}
+.container{padding:0 16px}.title{font-size:28px;margin:10px 0 16px}.search{width:100%;padding:14px;border-radius:16px;border:1px solid #334155;background:#111827;color:white;margin-bottom:18px;font-size:16px}
+.daylist{display:flex;flex-direction:column;gap:18px}.daycard{padding:18px;border-radius:26px;border:2px solid rgba(56,189,248,.58);background:linear-gradient(180deg,#172554,#0f172a);box-shadow:0 10px 30px rgba(0,0,0,.25)}.daycard:nth-child(odd){border-color:rgba(34,197,94,.65);background:linear-gradient(180deg,#0f2b25,#0b1320)}
+.dayhead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.daytitle{font-size:22px;font-weight:800;margin-top:6px}.daynum{color:#7dd3fc;font-size:14px}.daydate{color:var(--muted);margin-top:4px}
+.actions{display:flex;gap:8px;flex-direction:column;min-width:112px}.btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border-radius:14px;background:#38bdf8;color:#001018;text-decoration:none;font-weight:800;white-space:nowrap}.btn.apple{background:#e2e8f0;color:#111827}.timeline{margin-top:14px}.item{display:grid;grid-template-columns:70px 1fr;gap:10px;padding:12px 0;border-top:1px solid rgba(255,255,255,.1)}.time{font-weight:800;color:#7dd3fc}.text{line-height:1.7;color:#dbeafe}.quicktop{text-align:right;margin-top:14px}.topbtn{background:#1e293b;border:1px solid rgba(255,255,255,.16);color:white;padding:10px 14px;border-radius:999px;text-decoration:none;font-size:14px}
+.note{margin-top:12px;padding:12px;border-left:4px solid #f59e0b;background:rgba(245,158,11,.12);border-radius:14px;color:#fde68a;line-height:1.6}
+@media(max-width:520px){.hero h1{font-size:28px}.dayhead{flex-direction:column}.actions{width:100%}.btn{width:100%}.item{grid-template-columns:62px 1fr}}
 </style>
 </head>
 
 <body id="top">
-
 <section class="hero">
-  <h1>Seattle & Pacific Northwest Trip 🇺🇸</h1>
-  <p>2026/5/22–6/6｜Gig Harbor 出發｜Seattle 精華、MLB、Ferry、公路車、咖啡、UW、山海慢旅</p>
-  <div class="chips">
-    <div class="chip">📅 16天15夜</div>
-    <div class="chip">🏠 Gig Harbor</div>
-    <div class="chip">⚾ Mariners</div>
-    <div class="chip">🚴 Bike</div>
-    <div class="chip">⛴ Ferry</div>
-  </div>
+<h1>Seattle & Pacific Northwest Trip 🇺🇸</h1>
+<p>2026/5/22–6/6｜Gig Harbor 出發｜Seattle 經典、Mount Rainier、MLB、Ferry、公路車、咖啡、UW</p>
+<div class="chips"><div class="chip">📅 16天15夜</div><div class="chip">🏔 Rainier</div><div class="chip">⚾ Mariners</div><div class="chip">🚴 Bike</div><div class="chip">☕ Coffee</div></div>
 </section>
 
 <div class="tabs" id="tabs"></div>
 
 <div class="container">
-  <h2 class="title">每日行程</h2>
-  <input class="search" id="search" placeholder="搜尋：UW、MLB、Ferry、Bike、咖啡…" oninput="renderDays()" />
-  <div class="daylist" id="days"></div>
+<h2 class="title">每日行程</h2>
+<input class="search" id="search" placeholder="搜尋：Pike、Rainier、UW、MLB、Ferry…" oninput="renderDays()" />
+<div class="daylist" id="days"></div>
 </div>
 
 <script>
+const g=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
+const a=q=>'http://maps.apple.com/?q='+encodeURIComponent(q);
+
 const days=[
-{d:'Day 1',date:'5/22 五',title:'抵達 Seattle・回 Gig Harbor',tags:['飛機','家庭報到'],map:'https://maps.app.goo.gl/ViRwSNeDhQJBjgCfA',items:[['晚間','抵達 SEA-TAC，入境、領行李'],['晚上','回弟弟家，調時差，不排硬行程']]},
-{d:'Day 2',date:'5/23 六',title:'Portland 小旅行｜Pearl District',tags:['Portland','咖啡','書店'],map:'https://maps.app.goo.gl/7xQ7D7TTT8tGm7vU7',items:[['上午','Gig Harbor 出發南下 Portland'],['下午','Pearl District、Powell’s City of Books、咖啡散步'],['晚上','Cambria Hotel Portland - Pearl District']]},
-{d:'Day 3',date:'5/24 日',title:'Woodburn Outlet × Mt. Hood',tags:['Outlet','山區'],map:'https://maps.app.goo.gl/9Ekn3q6TnA3oXW4s9',items:[['上午','Woodburn Premium Outlets'],['下午','前往 Cooper Spur Mountain Resort'],['晚上','山區晚餐、早點休息']]},
-{d:'Day 4',date:'5/25 一',title:'Mt. Hood 放空日・回 Gig Harbor',tags:['森林','山景'],map:'https://maps.app.goo.gl/Qs9owtafYkNrCkvx9',items:[['上午','Cooper Spur 周邊慢散步'],['下午','Hood River 或直接回程'],['晚上','回 Gig Harbor 休息']]},
-{d:'Day 5',date:'5/26 二',title:'Gig Harbor Waterfront 慢活',tags:['港邊','海鮮','拍照'],map:'https://maps.app.goo.gl/ViRwSNeDhQJBjgCfA',items:[['上午','Gig Harbor Waterfront、Skansie Brothers Park'],['下午','咖啡、港邊散步'],['晚上','海鮮或漢堡晚餐']]},
-{d:'Day 6',date:'5/27 三',title:'公路車日｜Gig Harbor 海岸騎乘',tags:['Bike','50–80km','風景'],map:'https://maps.app.goo.gl/M6kA7s5zKJ4nJmN37',items:[['上午','Trek Bicycle Gig Harbor 租車'],['白天','Fox Island / Oyster Bay Loop 中間型路線'],['下午','還車、咖啡、休息']]},
-{d:'Day 7',date:'5/28 四',title:'Seattle 2天1夜 Day 1｜UW・Fremont・夜景',tags:['UW','Fremont','夜景'],map:'https://maps.app.goo.gl/9z7n3Jqz4fsv6x1H7',items:[['09:30','你＋媽媽從 Gig Harbor 出發'],['11:00','University of Washington、Suzzallo Library、Drumheller Fountain'],['14:30','Fremont Troll、Gas Works Park'],['19:00','Kerry Park 夜景，入住 Seattle']]},
-{d:'Day 8',date:'5/29 五',title:'Seattle 2天1夜 Day 2｜Pike Place・咖啡・Seattle Center',tags:['Pike Place','Coffee','Space Needle'],map:'https://maps.app.goo.gl/UqzT7kQ4t5YQK7sT8',items:[['上午','Pike Place Market、Waterfront'],['下午','Starbucks Reserve Roastery、Seattle Center、Chihuly / MoPOP'],['晚上','回 Gig Harbor']]},
-{d:'Day 9',date:'5/30 六',title:'MLB 台灣日｜全家當天來回',tags:['MLB','家庭','夜間'],map:'https://maps.app.goo.gl/oN6m6J7n9A1vJv8F9',items:[['白天','休息，不排硬行程'],['15:30','全家從 Gig Harbor 出發'],['19:00','T-Mobile Park 看 Mariners 台灣日'],['賽後','回 Gig Harbor']]},
-{d:'Day 10',date:'5/31 日',title:'Southworth Ferry × Vashon Island',tags:['Ferry','島','恢復日'],map:'https://maps.app.goo.gl/LxM5Q3L9p5Q2Yv3S9',items:[['上午','前往 Southworth Ferry Terminal'],['白天','搭船到 Vashon Island，咖啡、小鎮散步'],['下午','渡輪回程，早點休息']]},
-{d:'Day 11',date:'6/1 一',title:'Tacoma 文化與海岸日',tags:['Museum','Tacoma','Waterfront'],map:'https://maps.app.goo.gl/q9Qv2u4xW8wF5hE96',items:[['上午','Museum of Glass / LeMay America’s Car Museum'],['下午','Point Defiance Park、Ruston Waterfront'],['晚上','回 Gig Harbor']]},
-{d:'Day 12',date:'6/2 二',title:'Leavenworth Family Trip｜家人安排',tags:['Family','Leavenworth'],map:'https://maps.app.goo.gl/2n3PVZHaoMHLZzmF9',items:[['全天','與弟弟夫妻同行'],['備註','住宿與行程由家人安排，App 保留占位']]},
-{d:'Day 13',date:'6/3 三',title:'Leavenworth Family Trip｜回 Gig Harbor',tags:['Family','彈性'],map:'https://maps.app.goo.gl/2n3PVZHaoMHLZzmF9',items:[['白天','Leavenworth 周邊由家人安排'],['下午/晚上','回 Gig Harbor']]},
-{d:'Day 14',date:'6/4 四',title:'Bellevue × Microsoft × Snoqualmie Falls',tags:['科技','瀑布','Eastside'],map:'https://maps.app.goo.gl/z4m1u3r6fL7n8x9Y8',items:[['上午','Bellevue Downtown Park / Bellevue Square'],['下午','Microsoft Visitor Center 視開放情況'],['傍晚','Snoqualmie Falls 或咖啡收尾']]},
-{d:'Day 15',date:'6/5 五',title:'最後採買・打包・前往機場',tags:['Costco','打包','機場'],map:'https://maps.app.goo.gl/Er2jKWhfEh3E78WH6',items:[['上午','Costco / Trader Joe’s / Bellevue Square'],['下午','打包、洗衣、確認行李'],['晚上','提前前往 SEA-TAC，準備 6/6 01:15 起飛']]},
-{d:'Day 16',date:'6/6 六',title:'JX031 回台灣',tags:['回程','飛機'],map:'https://maps.app.goo.gl/Er2jKWhfEh3E78WH6',items:[['01:15','搭乘 JX031 離開 Seattle'],['後續','平安返台，整理照片與回憶']]}
+{d:'Day 1',date:'5/22 五',title:'抵達 Seattle・回 Gig Harbor',tags:['飛機','家庭報到'],q:'3908 122nd St Ct NW Gig Harbor WA',items:[['晚間','抵達 SEA-TAC，入境、領行李'],['晚上','回弟弟家，調時差，不排硬行程']]},
+{d:'Day 2',date:'5/23 六',title:'Portland 小旅行｜Pearl District',tags:['Portland','咖啡','書店'],q:'Cambria Hotel Portland Pearl District',items:[['上午','Gig Harbor 出發南下 Portland'],['下午','Pearl District、Powell’s City of Books、咖啡散步'],['晚上','Cambria Hotel Portland - Pearl District']]},
+{d:'Day 3',date:'5/24 日',title:'Woodburn Outlet × Mt. Hood',tags:['Outlet','山區'],q:'Woodburn Premium Outlets',items:[['上午','Woodburn Premium Outlets'],['下午','前往 Cooper Spur Mountain Resort'],['晚上','山區晚餐、早點休息']]},
+{d:'Day 4',date:'5/25 一',title:'Mt. Hood 放空日・回 Gig Harbor',tags:['森林','山景'],q:'Cooper Spur Mountain Resort',items:[['上午','Cooper Spur 周邊慢散步'],['下午','Hood River 或直接回程'],['晚上','回 Gig Harbor 休息']]},
+{d:'Day 5',date:'5/26 二',title:'Southworth Ferry × Vashon Island',tags:['Ferry','島','恢復日'],q:'Southworth Ferry Terminal',items:[['上午','從 Gig Harbor 前往 Southworth Ferry Terminal'],['白天','搭船到 Vashon Island，咖啡、小鎮散步'],['下午','渡輪回程，早點休息']]},
+{d:'Day 6',date:'5/27 三',title:'公路車日｜Gig Harbor 海岸騎乘',tags:['Bike','50–80km','風景'],q:'Trek Bicycle Gig Harbor 6820 Kimball Dr',items:[['上午','Trek Bicycle Gig Harbor 租車'],['白天','Fox Island / Oyster Bay Loop 中間型路線'],['下午','還車、咖啡、休息']]},
+{d:'Day 7',date:'5/28 四',title:'Seattle 市區 Day 1｜UW・Fremont・夜景',tags:['UW','Fremont','夜景'],q:'University of Washington Seattle',items:[['09:30','你＋媽媽從 Gig Harbor 出發'],['11:00','University of Washington、Suzzallo Library、Drumheller Fountain'],['14:30','Fremont Troll、Gas Works Park'],['19:00','Kerry Park 夜景；視狀況回 Gig Harbor 或住市區']]},
+{d:'Day 8',date:'5/29 五',title:'Mount Rainier National Park 一日遊',tags:['Rainier','家庭','國家公園'],q:'Paradise Mount Rainier National Park',note:'5月底 Paradise 一帶仍可能有積雪，請出發前查 NPS Road Status。建議走 Nisqually Entrance → Longmire → Narada Falls → Paradise 路線。',items:[['07:00','全家從 Gig Harbor 出發，車程約 2–2.5 小時'],['09:30','Nisqually Entrance 入園，沿途森林公路拍照'],['10:15','Longmire Museum / National Park Inn 休息、上洗手間'],['11:30','Narada Falls 觀景，短停拍照'],['12:30','Paradise Visitor Center 午餐、看雪山景'],['14:00','Myrtle Falls / Paradise 周邊短步道，依雪況調整'],['15:30','Christine Falls / Ricksecker Point 視時間補拍'],['17:00','離園回 Gig Harbor，晚餐可回程順路解決']]},
+{d:'Day 9',date:'5/30 六',title:'MLB 台灣日｜全家當天來回',tags:['MLB','家庭','夜間'],q:'T-Mobile Park Seattle',items:[['白天','休息，不排硬行程'],['15:30','全家從 Gig Harbor 出發'],['19:00','T-Mobile Park 看 Mariners 台灣日'],['賽後','回 Gig Harbor']]},
+{d:'Day 10',date:'5/31 日',title:'Seattle 經典 Day｜Pike Place・Waterfront・Seattle Center',tags:['Pike Place','Coffee','Space Needle'],q:'Pike Place Market Seattle',items:[['09:30','從 Gig Harbor 出發，避開早尖峰'],['11:00','Pike Place Market、魚市場、口香糖牆'],['12:30','Market 周邊午餐：海鮮濃湯 / Piroshky / Beecher’s'],['14:00','Waterfront 散步、摩天輪外觀'],['15:30','Seattle Center：Space Needle、Chihuly 或 MoPOP'],['17:30','Starbucks Reserve Roastery 或 Capitol Hill 晚餐'],['晚上','回 Gig Harbor']]},
+{d:'Day 11',date:'6/1 一',title:'Tacoma 文化與海岸日',tags:['Museum','Tacoma','Waterfront'],q:'Museum of Glass Tacoma',items:[['上午','Museum of Glass / LeMay America’s Car Museum'],['下午','Point Defiance Park、Ruston Waterfront'],['晚上','回 Gig Harbor']]},
+{d:'Day 12',date:'6/2 二',title:'Leavenworth Family Trip｜家人安排',tags:['Family','Leavenworth'],q:'Leavenworth WA',items:[['全天','與弟弟夫妻同行'],['備註','住宿與行程由家人安排，App 保留占位']]},
+{d:'Day 13',date:'6/3 三',title:'Leavenworth Family Trip｜回 Gig Harbor',tags:['Family','彈性'],q:'Leavenworth WA',items:[['白天','Leavenworth 周邊由家人安排'],['下午/晚上','回 Gig Harbor']]},
+{d:'Day 14',date:'6/4 四',title:'Bellevue × Microsoft × Snoqualmie Falls',tags:['科技','瀑布','Eastside'],q:'Snoqualmie Falls',items:[['上午','Bellevue Downtown Park / Bellevue Square'],['下午','Microsoft Visitor Center 視開放情況'],['傍晚','Snoqualmie Falls 或咖啡收尾']]},
+{d:'Day 15',date:'6/5 五',title:'最後採買・打包・前往機場',tags:['Costco','打包','機場'],q:'Seattle Tacoma International Airport',items:[['上午','Costco / Trader Joe’s / Bellevue Square'],['下午','打包、洗衣、確認行李'],['晚上','提前前往 SEA-TAC，準備 6/6 01:15 起飛']]},
+{d:'Day 16',date:'6/6 六',title:'JX031 回台灣',tags:['回程','飛機'],q:'Seattle Tacoma International Airport',items:[['01:15','搭乘 JX031 離開 Seattle'],['後續','平安返台，整理照片與回憶']]}
 ];
 
 function renderTabs(){
-  document.getElementById('tabs').innerHTML=days.map((x,i)=>
-    `<button class="tab ${i===0?'active':''}" onclick="jumpDay(${i},this)">${x.d}</button>`
-  ).join('');
+document.getElementById('tabs').innerHTML=days.map((x,i)=>`<button class="tab ${i===0?'active':''}" onclick="jumpDay(${i},this)">${x.d}</button>`).join('');
 }
 
 function jumpDay(i,el){
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  const target=document.getElementById('day-'+i);
-  if(target){ target.scrollIntoView({behavior:'smooth',block:'start'}); }
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+el.classList.add('active');
+const target=document.getElementById('day-'+i);
+if(target){target.scrollIntoView({behavior:'smooth',block:'start'});}
 }
 
 function renderDays(){
-  const q=(document.getElementById('search').value||'').toLowerCase();
-  const filtered=days.map((x,i)=>({...x,i}))
-    .filter(x=>!q||[x.d,x.date,x.title,...x.tags].join(' ').toLowerCase().includes(q));
+const q=(document.getElementById('search').value||'').toLowerCase();
+const filtered=days.map((x,i)=>({...x,i})).filter(x=>!q||[x.d,x.date,x.title,...x.tags].join(' ').toLowerCase().includes(q));
 
-  document.getElementById('days').innerHTML=filtered.map(x=>`
-    <div class="daycard" id="day-${x.i}">
-      <div class="dayhead">
-        <div>
-          <div class="daynum">${x.d}</div>
-          <div class="daytitle">${x.title}</div>
-          <div class="daydate">${x.date}</div>
-        </div>
-        <a class="btn" target="_blank" href="${x.map}">🗺 地圖導航</a>
-      </div>
-
-      <div class="pills">
-        ${x.tags.map(t=>`<span class="pill">${t}</span>`).join('')}
-      </div>
-
-      <div class="timeline">
-        ${x.items.map(it=>`
-          <div class="item">
-            <div class="time">${it[0]}</div>
-            <div class="text">${it[1]}</div>
-          </div>
-        `).join('')}
-      </div>
-
-      <div class="quicktop">
-        <a href="#top" class="topbtn" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆ 回日期選單</a>
-      </div>
+document.getElementById('days').innerHTML=filtered.map(x=>`
+<div class="daycard" id="day-${x.i}">
+  <div class="dayhead">
+    <div>
+      <div class="daynum">${x.d}</div>
+      <div class="daytitle">${x.title}</div>
+      <div class="daydate">${x.date}</div>
     </div>
-  `).join('');
+    <div class="actions">
+      <a class="btn" target="_blank" href="${g(x.q)}">🗺 Google</a>
+      <a class="btn apple" target="_blank" href="${a(x.q)}">🍎 Apple</a>
+    </div>
+  </div>
+
+  <div class="pills">${x.tags.map(t=>`<span class="pill">${t}</span>`).join('')}</div>
+  ${x.note?`<div class="note">${x.note}</div>`:''}
+
+  <div class="timeline">
+    ${x.items.map(it=>`
+      <div class="item">
+        <div class="time">${it[0]}</div>
+        <div class="text">${it[1]}</div>
+      </div>`).join('')}
+  </div>
+
+  <div class="quicktop">
+    <a href="#top" class="topbtn" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆ 回日期選單</a>
+  </div>
+</div>
+`).join('');
 }
 
 renderTabs();
 renderDays();
 </script>
-
 </body>
 </html>
