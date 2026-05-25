@@ -41,22 +41,224 @@ const g=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent
 const a=q=>'http://maps.apple.com/?q='+encodeURIComponent(q);
 
 const days=[
-{d:'Day 1',date:'5/22 五',title:'抵達 Seattle・回 Gig Harbor',tags:['飛機','家庭報到'],q:'3908 122nd St Ct NW Gig Harbor WA',items:[['晚間','抵達 SEA-TAC，入境、領行李'],['晚上','回弟弟家，調時差，不排硬行程']]},
-{d:'Day 2',date:'5/23 六',title:'Portland 小旅行｜Pearl District',tags:['Portland','咖啡','書店'],q:'Cambria Hotel Portland Pearl District',items:[['上午','Gig Harbor 出發南下 Portland'],['下午','Pearl District、Powell’s City of Books、咖啡散步'],['晚上','Cambria Hotel Portland - Pearl District']]},
-{d:'Day 3',date:'5/24 日',title:'Woodburn Outlet × Mt. Hood',tags:['Outlet','山區'],q:'Woodburn Premium Outlets',items:[['上午','Woodburn Premium Outlets'],['下午','前往 Cooper Spur Mountain Resort'],['晚上','山區晚餐、早點休息']]},
-{d:'Day 4',date:'5/25 一',title:'Mt. Hood 放空日・回 Gig Harbor',tags:['森林','山景'],q:'Cooper Spur Mountain Resort',items:[['上午','Cooper Spur 周邊慢散步'],['下午','Hood River 或直接回程'],['晚上','回 Gig Harbor 休息']]},
-{d:'Day 5',date:'5/26 二',title:'Southworth Ferry × Vashon Island',tags:['Ferry','島','恢復日'],q:'Southworth Ferry Terminal',items:[['上午','從 Gig Harbor 前往 Southworth Ferry Terminal'],['白天','搭船到 Vashon Island，咖啡、小鎮散步'],['下午','渡輪回程，早點休息']]},
-{d:'Day 6',date:'5/27 三',title:'公路車日｜Gig Harbor 海岸騎乘',tags:['Bike','50–80km','風景'],q:'Trek Bicycle Gig Harbor 6820 Kimball Dr',items:[['上午','Trek Bicycle Gig Harbor 租車'],['白天','Fox Island / Oyster Bay Loop 中間型路線'],['下午','還車、咖啡、休息']]},
-{d:'Day 7',date:'5/28 四',title:'Seattle 市區 Day 1｜UW・Fremont・夜景',tags:['UW','Fremont','夜景'],q:'University of Washington Seattle',items:[['09:30','你＋媽媽從 Gig Harbor 出發'],['11:00','University of Washington、Suzzallo Library、Drumheller Fountain'],['14:30','Fremont Troll、Gas Works Park'],['19:00','Kerry Park 夜景；視狀況回 Gig Harbor 或住市區']]},
-{d:'Day 8',date:'5/29 五',title:'Mount Rainier National Park 一日遊',tags:['Rainier','家庭','國家公園'],q:'Paradise Mount Rainier National Park',note:'5月底 Paradise 一帶仍可能有積雪，請出發前查 NPS Road Status。建議走 Nisqually Entrance → Longmire → Narada Falls → Paradise 路線。',items:[['07:00','全家從 Gig Harbor 出發，車程約 2–2.5 小時'],['09:30','Nisqually Entrance 入園，沿途森林公路拍照'],['10:15','Longmire Museum / National Park Inn 休息、上洗手間'],['11:30','Narada Falls 觀景，短停拍照'],['12:30','Paradise Visitor Center 午餐、看雪山景'],['14:00','Myrtle Falls / Paradise 周邊短步道，依雪況調整'],['15:30','Christine Falls / Ricksecker Point 視時間補拍'],['17:00','離園回 Gig Harbor，晚餐可回程順路解決']]},
-{d:'Day 9',date:'5/30 六',title:'MLB 台灣日｜全家當天來回',tags:['MLB','家庭','夜間'],q:'T-Mobile Park Seattle',items:[['白天','休息，不排硬行程'],['15:30','全家從 Gig Harbor 出發'],['19:00','T-Mobile Park 看 Mariners 台灣日'],['賽後','回 Gig Harbor']]},
-{d:'Day 10',date:'5/31 日',title:'Seattle 經典 Day｜Pike Place・Waterfront・Seattle Center',tags:['Pike Place','Coffee','Space Needle'],q:'Pike Place Market Seattle',items:[['09:30','從 Gig Harbor 出發，避開早尖峰'],['11:00','Pike Place Market、魚市場、口香糖牆'],['12:30','Market 周邊午餐：海鮮濃湯 / Piroshky / Beecher’s'],['14:00','Waterfront 散步、摩天輪外觀'],['15:30','Seattle Center：Space Needle、Chihuly 或 MoPOP'],['17:30','Starbucks Reserve Roastery 或 Capitol Hill 晚餐'],['晚上','回 Gig Harbor']]},
-{d:'Day 11',date:'6/1 一',title:'Tacoma 文化與海岸日',tags:['Museum','Tacoma','Waterfront'],q:'Museum of Glass Tacoma',items:[['上午','Museum of Glass / LeMay America’s Car Museum'],['下午','Point Defiance Park、Ruston Waterfront'],['晚上','回 Gig Harbor']]},
-{d:'Day 12',date:'6/2 二',title:'Leavenworth Family Trip｜家人安排',tags:['Family','Leavenworth'],q:'Leavenworth WA',items:[['全天','與弟弟夫妻同行'],['備註','住宿與行程由家人安排，App 保留占位']]},
-{d:'Day 13',date:'6/3 三',title:'Leavenworth Family Trip｜回 Gig Harbor',tags:['Family','彈性'],q:'Leavenworth WA',items:[['白天','Leavenworth 周邊由家人安排'],['下午/晚上','回 Gig Harbor']]},
-{d:'Day 14',date:'6/4 四',title:'Bellevue × Microsoft × Snoqualmie Falls',tags:['科技','瀑布','Eastside'],q:'Snoqualmie Falls',items:[['上午','Bellevue Downtown Park / Bellevue Square'],['下午','Microsoft Visitor Center 視開放情況'],['傍晚','Snoqualmie Falls 或咖啡收尾']]},
-{d:'Day 15',date:'6/5 五',title:'最後採買・打包・前往機場',tags:['Costco','打包','機場'],q:'Seattle Tacoma International Airport',items:[['上午','Costco / Trader Joe’s / Bellevue Square'],['下午','打包、洗衣、確認行李'],['晚上','提前前往 SEA-TAC，準備 6/6 01:15 起飛']]},
-{d:'Day 16',date:'6/6 六',title:'JX031 回台灣',tags:['回程','飛機'],q:'Seattle Tacoma International Airport',items:[['01:15','搭乘 JX031 離開 Seattle'],['後續','平安返台，整理照片與回憶']]}
+
+{
+d:'Day 1',
+date:'5/22 五',
+title:'抵達 Seattle・回 Gig Harbor',
+tags:['飛機','家庭報到'],
+q:'3908 122nd St Ct NW Gig Harbor WA',
+items:[
+['晚間','抵達 SEA-TAC，入境、領行李'],
+['晚上','回弟弟家，調時差，不排硬行程']
+]
+},
+
+{
+d:'Day 2',
+date:'5/23 六',
+title:'Portland 小旅行｜Pearl District',
+tags:['Portland','咖啡','書店'],
+q:'Pearl District Portland',
+items:[
+['上午','Gig Harbor 出發南下 Portland'],
+['下午','Pearl District、Powell’s、咖啡散步'],
+['晚上','入住 Cambria Hotel Portland - Pearl District']
+]
+},
+
+{
+d:'Day 3',
+date:'5/24 日',
+title:'Woodburn Outlet × Mt. Hood',
+tags:['Outlet','山區'],
+q:'Woodburn Premium Outlets',
+items:[
+['上午','Woodburn Premium Outlets'],
+['下午','前往 Cooper Spur Mountain Resort'],
+['晚上','山景放鬆、小木屋感']
+]
+},
+
+{
+d:'Day 4',
+date:'5/25 一',
+title:'Mt. Hood 放空日・回 Gig Harbor',
+tags:['森林','山景'],
+q:'Cooper Spur Mountain Resort',
+items:[
+['上午','Mt. Hood 周邊散步'],
+['下午','Hood River / Columbia Gorge'],
+['晚上','回 Gig Harbor']
+]
+},
+
+{
+d:'Day 5',
+date:'5/26 二',
+title:'Gig Harbor Bike Day 🚴',
+tags:['Bike','Fox Island','海景'],
+q:'Trek Bicycle Gig Harbor',
+items:[
+['上午','Trek Bicycle Gig Harbor 租車'],
+['白天','Fox Island Loop / Oyster Bay 海岸騎乘'],
+['下午','海景咖啡、港邊休息'],
+['晚上','美式 diner 或海鮮']
+]
+},
+
+{
+d:'Day 6',
+date:'5/27 三',
+title:'Seattle Classic Day 1｜Pike Place・Seattle Center',
+tags:['Pike Place','Space Needle','Coffee'],
+q:'Pike Place Market Seattle',
+items:[
+['09:30','從 Gig Harbor 出發前往 Seattle'],
+['11:00','Pike Place Market、飛魚市場、Gum Wall'],
+['12:30','Waterfront 午餐：clam chowder / fish & chips'],
+['14:30','Seattle Center、Space Needle、Chihuly'],
+['16:30','Starbucks Reserve Roastery 朝聖'],
+['18:30','Capitol Hill 晚餐與散步'],
+['晚上','Seattle 市區住宿（你＋媽媽）']
+]
+},
+
+{
+d:'Day 7',
+date:'5/28 四',
+title:'Seattle Classic Day 2｜UW・Fremont・夜景',
+tags:['UW','Fremont','夜景'],
+q:'University of Washington Seattle',
+items:[
+['上午','UW 校園、Suzzallo Library、Quad'],
+['中午','U District brunch / ramen'],
+['下午','Fremont Troll、Gas Works Park'],
+['傍晚','Kerry Park Seattle 夜景'],
+['晚上','回 Gig Harbor']
+]
+},
+
+{
+d:'Day 8',
+date:'5/29 五',
+title:'Mount Rainier National Park 一日遊 🏔',
+tags:['Rainier','國家公園','家庭'],
+q:'Paradise Mount Rainier National Park',
+items:[
+['07:00','全家從 Gig Harbor 出發'],
+['09:30','Nisqually Entrance 入園'],
+['10:15','Longmire Museum / National Park Inn'],
+['11:30','Narada Falls 瀑布'],
+['12:30','Paradise Visitor Center 午餐'],
+['14:00','Myrtle Falls / Paradise Trail 短步道'],
+['15:30','Ricksecker Point / Christine Falls'],
+['17:00','返程回 Gig Harbor']
+]
+},
+
+{
+d:'Day 9',
+date:'5/30 六',
+title:'MLB 台灣日 ⚾ + Ferry 體驗',
+tags:['MLB','Ferry','家庭'],
+q:'Southworth Ferry Terminal',
+items:[
+['下午','從 Gig Harbor 開車前往 Southworth Ferry'],
+['搭船','Southworth Ferry → Seattle'],
+['傍晚','Seattle Waterfront / 球場周邊'],
+['19:00','T-Mobile Park Mariners 台灣日'],
+['賽後','開車返回 Gig Harbor（不搭回程 Ferry）']
+]
+},
+
+{
+d:'Day 10',
+date:'5/31 日',
+title:'Tacoma Waterfront Day',
+tags:['Tacoma','Museum','Waterfront'],
+q:'Museum of Glass Tacoma',
+items:[
+['上午','Museum of Glass / LeMay Car Museum'],
+['下午','Point Defiance Park、Ruston Waterfront'],
+['晚上','Tacoma 晚餐']
+]
+},
+
+{
+d:'Day 11',
+date:'6/1 一',
+title:'Bellevue × Microsoft × Snoqualmie',
+tags:['科技','瀑布'],
+q:'Snoqualmie Falls',
+items:[
+['上午','Bellevue Downtown Park'],
+['下午','Microsoft Visitor Center'],
+['傍晚','Snoqualmie Falls']
+]
+},
+
+{
+d:'Day 12',
+date:'6/2 二',
+title:'Leavenworth Family Trip',
+tags:['Family','Leavenworth'],
+q:'Leavenworth WA',
+items:[
+['全天','與弟弟夫妻同行'],
+['備註','住宿與行程由家人安排']
+]
+},
+
+{
+d:'Day 13',
+date:'6/3 三',
+title:'Leavenworth Family Trip',
+tags:['Family','Leavenworth'],
+q:'Leavenworth WA',
+items:[
+['白天','Leavenworth 周邊活動'],
+['晚上','返回 Gig Harbor']
+]
+},
+
+{
+d:'Day 14',
+date:'6/4 四',
+title:'Gig Harbor Relax Day',
+tags:['休息','港邊'],
+q:'Gig Harbor Waterfront',
+items:[
+['上午','睡晚一點、洗衣整理'],
+['下午','Gig Harbor Waterfront 散步'],
+['晚上','海景晚餐']
+]
+},
+
+{
+d:'Day 15',
+date:'6/5 五',
+title:'最後採買・打包',
+tags:['Costco','Trader Joe’s'],
+q:'Bellevue Square',
+items:[
+['上午','Costco / Trader Joe’s 採買'],
+['下午','整理行李'],
+['晚上','前往 SEA-TAC']
+]
+},
+
+{
+d:'Day 16',
+date:'6/6 六',
+title:'JX031 回台灣 ✈️',
+tags:['回程'],
+q:'Seattle Tacoma International Airport',
+items:[
+['01:15','搭乘 JX031 返回台灣']
+]
+}
+
 ];
 
 function renderTabs(){
